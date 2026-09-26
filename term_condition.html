@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr" class="bg-gray-50">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termes et Conditions | Cascade</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CDN (icônes) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            position: relative;
+        }
+
+        /* Motif de fond immersif */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(234,88,12,0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .legal-content h2 { 
+            margin-top: 2.5rem; 
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: #111827;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .legal-content h2::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background: #ea580c;
+            border-radius: 2px;
+        }
+
+        .legal-content h2 i {
+            color: #ea580c;
+            font-size: 1.1rem;
+        }
+
+        .legal-content p,
+        .legal-content li {
+            line-height: 1.7;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        }
+
+        .danger-box {
+
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        }
+    </style>
+</head>
+
+<body class="py-12 px-4 sm:px-6">
+
+    <div class="max-w-4xl mx-auto">
+        <a href="register.php" class="inline-flex items-center gap-2 text-sm font-semibold text-fuchsia-600 hover:text-fuchsia-700 mb-10 transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Retour au site
+        </a>
+
+        <header class="mb-12">
+            <div class="flex items-center gap-2 mb-4">
+                <div class="flex justify-left items-center gap-2 mb-8 reveal-top">
+                    <a href="index.php" class="flex items-center gap-2">
+                        <img src="ecascadeur.png" alt="Logo ecascadeur.com" class="h-8 w-auto object-contain">
+                        <span class="text-2xl font-bold tracking-tight text-gray-900">
+                            ecascadeur<span class="text-fuchsia-500">.com</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <h1 class="text-4xl font-extrabold text-gray-900 tracking-tight">
+                Termes et Conditions
+            </h1>
+
+            <p class="mt-4 text-gray-500 italic">
+                Dernière mise à jour : 20 décembre 2025
+            </p>
+        </header>
+
+        <div class="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8 sm:p-12 legal-content">
+
+            <p class="text-lg font-medium text-gray-700 mb-8">
+                Bienvenue sur Cascade. En utilisant notre plateforme, vous rejoignez une communauté basée sur la confiance et la transparence. Veuillez lire attentivement nos règles de fonctionnement.
+            </p>
+
+            <h2>1. Objet et Principes Fondamentaux</h2>
+            <p>
+                Cascade est une plateforme e-commerce permettant aux vendeurs de déposer gratuitement leurs produits légaux (neufs ou de seconde main) et aux acheteurs d'effectuer des achats en toute sécurité. Notre système repose sur trois piliers fondamentaux : <strong>sécurisation des paiements</strong>, <strong>authenticité des annonces</strong>, et <strong>protection juridique des deux parties</strong>.
+            </p>
+
+            <h2>2. Fonctionnement de la Plateforme</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+                <div class="p-6 bg-fuchsia-50 rounded-2xl border border-fuchsia-200">
+                    <h3 class="font-bold text-lg text-fuchsia-800 mb-3 flex items-center gap-2">
+                        Pour les Vendeurs
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex gap-2">
+                            <i class="fa-solid fa-check text-fuchsia-600 mt-1"></i>
+                            <span>Dépôt gratuit d'annonces pour produits neufs et d'occasion</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fa-solid fa-check text-fuchsia-600 mt-1"></i>
+                            <span>Obligation de fournir des images réelles et non modifiées</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fa-solid fa-check text-fuchsia-600 mt-1"></i>
+                            <span>Description précise et honnête des produits</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fa-solid fa-check text-fuchsia-600 mt-1"></i>
+                            <span>Engagement à livrer dans les délais convenus</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="p-6 bg-blue-50 rounded-2xl border border-blue-200">
+                    <h3 class="font-bold text-lg text-blue-800 mb-3 flex items-center gap-2">
+                        Pour les Acheteurs
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex gap-2">
+                            <i class="fa-solid fa-shield-alt text-blue-600 mt-1"></i>
+                            <span>Paiement sécurisé avec protection jusqu'à réception</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fa-solid fa-shield-alt text-blue-600 mt-1"></i>
+                            <span>Garantie contre les annonces frauduleuses</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fa-solid fa-shield-alt text-blue-600 mt-1"></i>
+                            <span>Droit de vérification avant libération du paiement</span>
+                        </li>
+                        <li class="flex gap-2">
+                            <i class="fa-solid fa-shield-alt text-blue-600 mt-1"></i>
+                            <span>Support client dédié en cas de litige</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>3. Liste Noire des Produits Interdits</h2>
+            <div class="danger-box rounded-2xl p-6 my-6">
+                <h3 class="font-bold text-red-800 text-lg mb-4 flex items-center gap-2">
+                    Produits strictement interdits à la vente
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <h4 class="font-bold text-red-700 mb-2">Armes et substances dangereuses</h4>
+                        <ul class="space-y-1 text-red-600">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark mt-1"></i>
+                                <span>Armes à feu et armes blanches</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark mt-1"></i>
+                                <span>Explosifs et matériaux inflammables</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark mt-1"></i>
+                                <span>Produits chimiques dangereux</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark mt-1"></i>
+                                <span>Stupéfiants et substances réglementées</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-red-700 mb-2">Contrefaçon et produits réglementés</h4>
+                        <ul class="space-y-1 text-red-600">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark mt-1"></i>
+                                <span>Produits contrefaits ou piratés</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark mt-1"></i>
+                                <span>Médicaments sans prescription</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark mt-1"></i>
+                                <span>Produits issus du braconnage</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-xmark mt-1"></i>
+                                <span>Objets volés ou recelés</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <h4 class="font-bold text-red-700 mb-2">Autres restrictions</h4>
+                    <ul class="space-y-1 text-red-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-xmark mt-1"></i>
+                            <span>Produits pornographiques ou à caractère sexuel explicite</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-xmark mt-1"></i>
+                            <span>Données personnelles ou informations confidentielles</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-xmark mt-1"></i>
+                            <span>Animaux vivants (sauf autorisations spécifiques)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-xmark mt-1"></i>
+                            <span>Produits discriminatoires ou haineux</span>
+                        </li>
+                    </ul>
+                </div>
+                <p class="mt-4 text-red-700 font-bold">
+                    Tout vendeur enfreignant ces règles sera immédiatement banni et signalé.
+                </p>
+            </div>
+
+            <h2>4. Système de Paiement Sécurisé</h2>
+            <div class="info-box rounded-2xl p-6 my-6">
+                <h3 class="font-bold text-blue-800 text-lg mb-4">
+                    <i class="fa-solid fa-lock"></i>
+                    Comment fonctionne notre protection acheteur/vendeur
+                </h3>
+                <ol class="space-y-6">
+                    <li class="flex gap-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                        <div>
+                            <p class="font-bold text-gray-900">Commande et paiement</p>
+                            <p class="text-gray-600">L'acheteur paie lors de la commande. Les fonds sont enregistrés par notre système de paiement sécurisé.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                        <div>
+                            <p class="font-bold text-gray-900">Sécurisation des fonds</p>
+                            <p class="text-gray-600">L'argent reste la propriété de l'acheteur jusqu'à la réception et validation de la marchandise.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                        <div>
+                            <p class="font-bold text-gray-900">Code secret de validation</p>
+                            <p class="text-gray-600">Un code unique à 6 chiffres est généré. Il ne doit être communiqué au vendeur qu'après vérification complète du produit reçu.</p>
+                        </div>
+                    </li>
+                    <li class="flex gap-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                        <div>
+                            <p class="font-bold text-gray-900">Libération des fonds</p>
+                            <p class="text-gray-600">Une fois le code communiqué, le vendeur reçoit le paiement intégral, déduction faite des frais de service.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <h2>5. Authenticité des Annonces</h2>
+            <div class="warning-box rounded-2xl p-6 my-6">
+                <h3 class="font-bold text-amber-800 text-lg mb-4">
+                    Règles strictes pour les images et descriptions
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex gap-3">
+                        <i class="fa-solid fa-check-circle text-amber-600 mt-1"></i>
+                        <span><strong>Images obligatoires :</strong> Minimum 3 photos réelles sous différents angles</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fa-solid fa-check-circle text-amber-600 mt-1"></i>
+                        <span><strong>Interdiction de modification :</strong> Aucun filtre, retouche ou montage trompeur n'est autorisé</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fa-solid fa-check-circle text-amber-600 mt-1"></i>
+                        <span><strong>Correspondance stricte :</strong> Le produit livré doit correspondre exactement aux photos et descriptions</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fa-solid fa-check-circle text-amber-600 mt-1"></i>
+                        <span><strong>Signalement :</strong> Tout écart peut être signalé et entraîne la suspension immédiate de l'annonce</span>
+                    </li>
+                </ul>
+                <p class="mt-4 text-amber-800 font-bold">
+                    En cas de non-respect, le vendeur est tenu de rembourser intégralement l'acheteur et peut faire l'objet de poursuites judiciaires.
+                </p>
+            </div>
+
+            <h2>6. Engagements et Sanctions</h2>
+            <div class="my-6 space-y-4">
+                <div class="p-5 bg-gray-50 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-user-shield"></i>
+                        Engagements des vendeurs
+                    </h3>
+                    <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                        <li>Livraison du produit tel que présenté dans l'annonce</li>
+                        <li>Respect des délais de livraison convenus</li>
+                        <li>Emballage approprié pour la protection du produit</li>
+                        <li>Disponibilité pour répondre aux questions des acheteurs</li>
+                    </ul>
+                </div>
+                
+                <div class="p-5 bg-gray-50 rounded-xl border border-gray-200">
+                    <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-user-check"></i>
+                        Engagements des acheteurs
+                    </h3>
+                    <ul class="list-disc pl-5 space-y-1 text-gray-600">
+                        <li>Paiement effectif lors de la commande (pas de commandes abusives)</li>
+                        <li>Vérification rapide du produit à réception</li>
+                        <li>Communication du code secret uniquement après vérification satisfaisante</li>
+                        <li>Signalement immédiat de tout problème</li>
+                    </ul>
+                </div>
+                
+                <div class="p-5 rounded-xl border border-red-200">
+                    <h3 class="font-bold text-red-800 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-handcuffs"></i>
+                        Sanctions en cas d'abus
+                    </h3>
+                    <ul class="list-disc pl-5 space-y-1 text-red-600">
+                        <li>Suspension immédiate du compte</li>
+                        <li>Retenue des fonds en cas de litige</li>
+                        <li>Signalement aux autorités pour infractions graves</li>
+                        <li>Poursuites judiciaires pour fraude ou tromperie</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2>7. Programme de Fidélité Vendeur</h2>
+            <div class="bg-gradient-to-r from-fuchsia-50 to-amber-50 rounded-2xl p-6 my-6 border border-fuchsia-200">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 bg-fuchsia-500 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-trophy text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-gray-900 text-lg">Gagnez des bonus sur vos ventes !</h3>
+                        <p class="text-gray-600">Notre programme de récompense pour les vendeurs fiables</p>
+                    </div>
+                </div>
+                <ul class="space-y-4">
+                    <li class="flex gap-3">
+                        <i class="fa-solid fa-medal text-fuchsia-500 mt-1"></i>
+                        <span><strong>3,7 point par vente :</strong> Chaque transaction validée rapporte 3,7 point de fidélité</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fa-solid fa-gift text-fuchsia-500 mt-1"></i>
+                        <span><strong>Bonus à 100 points :</strong> Atteignez 100 points et recevez un bonus de 20% sur vos ventes globales</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <i class="fa-solid fa-bolt text-fuchsia-500 mt-1"></i>
+                        <span><strong>Livraison prioritaire :</strong> Les vendeurs avec plus de 50 points bénéficient d'une mise en avant de leurs annonces</span>
+                    </li>
+                </ul>
+                <div class="mt-6 p-4 bg-white rounded-xl border border-fuchsia-300">
+                    <p class="text-sm text-gray-600">
+                        <i class="fa-solid fa-info-circle text-fuchsia-500 mr-2"></i>
+                        Le programme de fidélité est cumulable avec les autres promotions. Les points sont crédités après validation de la transaction par l'acheteur.
+                    </p>
+                </div>
+            </div>
+
+            <h2>8. Support et Résolution de Litiges</h2>
+            <p>
+                En cas de problème, notre équipe de support est disponible 7j/7 pour aider à résoudre les litiges. Nous nous engageons à :
+            </p>
+            <ul class="list-disc pl-5 space-y-2 mt-4 text-gray-600">
+                <li>Répondre sous 24 heures maximum</li>
+                <li>Examiner impartialement chaque situation</li>
+                <li>Proposer des solutions équitables</li>
+                <li>Faciliter le remboursement en cas de non-conformité</li>
+            </ul>
+
+            <div class="mt-8 p-6 bg-gray-800 rounded-2xl text-white">
+                <h3 class="font-bold text-xl mb-3 flex items-center gap-3">
+                    <i class="fa-solid fa-file-contract"></i>
+                    Acceptation des conditions
+                </h3>
+                <p class="mb-4 text-gray-300">
+                    En utilisant la plateforme Cascade, vous reconnaissez avoir lu, compris et accepté l'intégralité de ces termes et conditions. Vous vous engagez à respecter toutes les règles énoncées ci-dessus.
+                </p>
+                <p class="text-sm text-gray-300">
+                    Ces conditions peuvent être modifiées à tout moment. Les utilisateurs seront notifiés des changements importants par email.
+                </p>
+            </div>
+
+            <h2>9. Contact</h2>
+            <p>Une question sur ces termes ? Notre équipe juridique vous répond :</p>
+
+            <div class="flex flex-wrap gap-4 mt-6">
+                <a href="mailto:support@cascade.cd"
+                   class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white font-bold rounded-xl hover:bg-fuchsia-600 transition-all">
+                    <i class="fa-solid fa-envelope"></i>
+                    Nous contacter
+                </a>
+                <a href="tel:+243992210266"
+                   class="inline-flex items-center gap-2 px-6 py-3 bg-fuchsia-500 text-white font-bold rounded-xl hover:bg-fuchsia-600 transition-all">
+                    <i class="fa-solid fa-phone"></i>
+                    Support téléphonique
+                </a>
+            </div>
+        </div>
+
+        <footer class="mt-12 text-center text-gray-400 text-sm">
+            &copy; <?= date('Y') ?> Cascade E-commerce. Tous droits réservés.
+            <p class="mt-2 text-xs">Plateforme certifiée conforme aux réglementations e-commerce en vigueur.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
