@@ -21,7 +21,7 @@ if (!$user_id && isset($_COOKIE['user_id'])) {
     mysqli_stmt_close($stmt);
 }
 $user_role = null;
-$profile_pic = "../img/avatar.jpg";
+$profile_pic = "images/img/avatar.jpg";
 $order_count = 0;
 $unread_notifs_count = 0;
 $user_notifications = [];
@@ -56,7 +56,7 @@ if ($user_id) {
 // avatar fallback
 $avatar = ($profile_pic && file_exists($profile_pic))
     ? $profile_pic
-    : "../img/avatar.jpg";
+    : "images/img/avatar.jpg";
 
 $profile_link = $user_id ? "dashboard.php" : "login.php";
 
@@ -728,7 +728,7 @@ $pour_toi_json = htmlspecialchars(json_encode($initial_pour_toi, JSON_UNESCAPED_
     <div x-ref="storiesContainer" class="flex gap-4 overflow-x-auto no-scrollbar pb-6">
         <a href="add_product.php" class="flex-shrink-0 w-44 h-72 md:w-52 md:h-80 relative rounded-2xl overflow-hidden bg-[#1c1e21] flex flex-col group transition-transform hover:scale-[1.02]">
             <div class="h-[75%] w-full relative overflow-hidden">
-                <img src="../img/add.jpg" alt="Fond" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 group-hover:brightness-90">                  
+                <img src="images/img/add.jpg" alt="Fond" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 group-hover:brightness-90">                  
             </div>
 
             <div class="absolute top-[75%] -translate-y-1/2" style="position:absolute; left:50%; top:75%; transform:translateX(-50%);">

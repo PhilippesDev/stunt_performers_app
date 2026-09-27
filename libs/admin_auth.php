@@ -127,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="bg-white rounded-[2.5rem] banshadow-xl border border-gray-100 p-8">
     
         <div class="flex gap-4 rounded-xl bg-white p-5 ">
-    <img src="../img/cadenat.svg" class="h-8 w-8 opacity-80">
+    <img src="images/img/cadenat.svg" class="h-8 w-8 opacity-80">
 
     <div>
         <h3 class="text-base font-bold text-red-700">
