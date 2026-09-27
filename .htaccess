@@ -1,3 +1,19 @@
-<FilesMatch "^\.env(?:\..*)?$">
-    Require all denied
-</FilesMatch>
+# Apache Configuration for stunt_performers_app
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Prevent direct HTTP access to protected directories and sensitive files outside public
+    RewriteRule ^(libs|logs|\.env|\.env\.example|\.git|\.gitignore|composer\.json|composer\.lock|scratch)(/.*)?$ - [F,L,NC]
+
+    # Rewrite requests automatically to the public directory
+    RewriteCond %{REQUEST_URI} !^/public/ [NC]
+    RewriteCond %{REQUEST_URI} !^/stunt_performers_app/public/ [NC]
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+# Directory Index default
+DirectoryIndex public/index.php index.php
+
+# Disable directory browsing
+Options -Indexes
