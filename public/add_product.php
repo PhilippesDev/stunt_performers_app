@@ -573,7 +573,7 @@ while ($row = $categories_result->fetch_assoc()) {
 <body class="h-full pb-20 relative" x-data="productForm()">
     <!-- Image incrustée -->
     <img
-        src="images/img/background4.jpg"
+        src="assets/images/img/background4.jpg"
         class="pointer-events-none fixed inset-0 m-auto w-full opacity-[0.04]"
         alt=""
     >

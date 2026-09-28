@@ -3,11 +3,11 @@
 ob_start();
 require_once __DIR__ . '/env.php';
 
-$servername = env_value('DB_HOST', 'localhost');
-$username = env_value('DB_USER');
-$password = env_value('DB_PASSWORD');
-$dbname = env_value('DB_NAME');
-$port = (int) env_value('DB_PORT', '3306');
+$servername = env_value('LOCAL_DB_HOST', 'localhost');
+$username = env_value('LOCAL_DB_USER');
+$password = env_value('LOCAL_DB_PASSWORD');
+$dbname = env_value('LOCAL_DB_NAME');
+$port = (int) env_value('LOCAL_DB_PORT', '3306');
 
 // Créer la connexion
 $conn = new mysqli($servername, $username, $password, $dbname, $port);

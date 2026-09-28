@@ -72,7 +72,7 @@ $search_query = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '';
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
-    <link rel="apple-touch-icon" href="images/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="assets/images/img/apple-touch-icon.png">
     <style>
         body { font-family: 'Inter', sans-serif; }
         [x-cloak] { display: none !important; }
@@ -218,7 +218,7 @@ $search_query = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '';
         </main>
     </div>
 
-    <?php include "footer.html" ?>
+    <?php include __DIR__ . '/../libs/includes/footer.php'; ?>
 
 
     <script>

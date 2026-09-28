@@ -1,7 +1,7 @@
 <?php
 session_start();
 require __DIR__ . '/../libs/db.php';
-require __DIR__ . "/vendor/autoload.php";
+require __DIR__ . '/../vendor/autoload.php';
 
 // 1. CONFIGURATION GOOGLE CLIENT
 $client = new Google\Client();
@@ -127,7 +127,7 @@ session_destroy();
                 <img src="assets/images/ecascadeur.png" alt="Logo ecascadeur.com" class="h-10 w-auto object-contain bg-white rounded-lg p-1 shadow-lg">
                 <span class="text-2xl font-bold tracking-tight text-white uppercase">ecascadeur.com</span>
             </div>
-            <h1 class="text-6xl font-extrabold leading-tight mb-6">Rejoignez <br><span class="text-fuchsia-100">la communauté </span> <img src="images/img/fusee2.png" alt="" class="w-12 h-18"></h1>
+            <h1 class="text-6xl font-extrabold leading-tight mb-6">Rejoignez <br><span class="text-fuchsia-100">la communauté </span> <img src="assets/images/img/fusee2.png" alt="" class="w-12 h-18"></h1>
             <p class="text-xl text-fuchsia-50 max-w-md leading-relaxed">Créez votre profil en quelques secondes et profitez d'une expérience shopping personnalisée.</p>
         </div>
         <div class="relative z-10 text-sm text-fuchsia-100 reveal-bottom">© 2024 ecascadeur.com.</div>
@@ -164,7 +164,7 @@ session_destroy();
                     <div class="relative group">
                 <div class="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white shadow-lg bg-gray-200">
                     <?php
-                        $avatar = (!empty($google_picture)) ? $google_picture : 'images/img/avatar.jpg';
+                        $avatar = (!empty($google_picture)) ? $google_picture : 'assets/images/img/avatar.jpg';
                         ?>
                     <img id="preview" src=" <?= $avatar ?>" class="w-full h-full object-cover">
                 </div>

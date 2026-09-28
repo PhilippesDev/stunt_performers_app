@@ -110,7 +110,7 @@ $dark_mode = isset($_SESSION['dark_mode']) ? $_SESSION['dark_mode'] : 0;
   <?php endif; ?>
 
   <link rel="icon" type="image/png" href="assets/images/favicon.png">
-  <link href="images/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/images/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins&display=swap" rel="stylesheet">

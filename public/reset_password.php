@@ -53,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['otp']) && isset($_POST
 
     <!-- Image incrustée -->
     <img
-        src="images/img/background4.jpg"
+        src="assets/images/img/background4.jpg"
         class="pointer-events-none fixed inset-0 m-auto w-full opacity-[0.09]"
         alt=""
     >
