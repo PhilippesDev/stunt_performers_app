@@ -6,10 +6,14 @@
     # Prevent direct HTTP access to protected directories and sensitive files outside public
     RewriteRule ^(libs|logs|\.env|\.env\.example|\.git|\.gitignore|composer\.json|composer\.lock|scratch)(/.*)?$ - [F,L,NC]
 
-    # Rewrite requests automatically to the public directory
-    RewriteCond %{REQUEST_URI} !^/public/ [NC]
-    RewriteCond %{REQUEST_URI} !^/stunt_performers_app/public/ [NC]
+    # Serve static assets directly if present in public directory
+    RewriteCond %{DOCUMENT_ROOT}/public/$1 -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/public/$1 -d
     RewriteRule ^(.*)$ public/$1 [L]
+
+    # Rewrite all requests to public/index.php (Front Controller)
+    RewriteCond %{REQUEST_URI} !^/public/index\.php
+    RewriteRule ^(.*)$ public/index.php [L,QSA]
 </IfModule>
 
 # Directory Index default

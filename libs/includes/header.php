@@ -2,6 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once __DIR__ . '/../Router.php';
 require_once __DIR__ . '/../user_helper.php';
 
 $isLoggedIn = isset($_SESSION['user_id']);
@@ -39,7 +40,7 @@ $cartCount = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
 <header style="background: var(--color-surface); border-bottom: 1px solid var(--color-border); position: sticky; top: 0; z-index: 900;">
     <div class="container flex items-center justify-between" style="height: 72px;">
         <!-- Logo -->
-        <a href="index.php" class="flex items-center gap-2" style="text-decoration: none; color: var(--color-text);">
+        <a href="<?= url('/') ?>" class="flex items-center gap-2" style="text-decoration: none; color: var(--color-text);">
             <img src="assets/images/ecascadeur.png" alt="Logo ecascadeur.com" style="height: 36px; object-fit: contain;" onError="this.style.display='none'">
             <span style="font-weight: 700; font-size: 1.25rem; background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">ECASCADEUR.COM</span>
         </a>
@@ -54,10 +55,10 @@ $cartCount = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
 
         <!-- Navigation Actions -->
         <div class="flex items-center gap-4">
-            <a href="catalog.php" class="btn btn-secondary" style="border: none;">Catalogue</a>
+            <a href="<?= url('catalog') ?>" class="btn btn-secondary" style="border: none;">Catalogue</a>
             
             <?php if ($isLoggedIn): ?>
-                <a href="dashboard.php" class="btn btn-secondary" style="border: none;">Dashboard</a>
+                <a href="<?= url('dashboard') ?>" class="btn btn-secondary" style="border: none;">Dashboard</a>
             <?php endif; ?>
 
             <!-- Cart Drawer Trigger -->
@@ -70,11 +71,11 @@ $cartCount = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
 
             <!-- User Menu -->
             <?php if ($isLoggedIn): ?>
-                <a href="edit_profile.php" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
+                <a href="<?= url('edit_profile') ?>" style="display: flex; align-items: center; gap: 8px; text-decoration: none;">
                     <img src="<?= htmlspecialchars($userPic) ?>" alt="Profil" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-primary);">
                 </a>
             <?php else: ?>
-                <a href="login.php" class="btn btn-primary">Connexion</a>
+                <a href="<?= url('login') ?>" class="btn btn-primary">Connexion</a>
             <?php endif; ?>
         </div>
     </div>
@@ -95,7 +96,7 @@ $cartCount = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
                 <span>Total:</span>
                 <span class="cart-total" style="color: var(--color-primary);">0.00 $</span>
             </div>
-            <a href="payment.php" class="btn btn-primary" style="width: 100%; text-align: center;">Passer la commande</a>
+            <a href="<?= url('payment') ?>" class="btn btn-primary" style="width: 100%; text-align: center;">Passer la commande</a>
         </div>
     </div>
 </div>

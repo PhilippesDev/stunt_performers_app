@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/../libs/Router.php';
 require_once __DIR__ . '/../libs/db.php';
 require_once __DIR__ . '/../libs/user_helper.php';
 
@@ -49,9 +50,9 @@ if (isset($_GET['cat_id']) || isset($_GET['sub_id'])) {
         }
     }
     
-    // Redirect to recherche.php with category as search query
+    // Redirect to search with category as search query
     if (isset($search_query)) {
-        header("Location: recherche.php?search=" . urlencode($search_query) . "&category_id=" . $category_id . ($subcategory_id ? "&subcategory_id=" . $subcategory_id : ""));
+        header("Location: " . url('search') . "?search=" . urlencode($search_query) . "&category_id=" . $category_id . ($subcategory_id ? "&subcategory_id=" . $subcategory_id : ""));
         exit();
     }
 }
@@ -92,18 +93,18 @@ $search_query = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '';
         <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm border-b border-gray-100">
             <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
                 <!-- Logo -->
-                <a href="index.php" class="flex items-center gap-2 text-2xl font-bold tracking-tight text-gray-900">
+                <a href="<?= url('/') ?>" class="flex items-center gap-2 text-2xl font-bold tracking-tight text-gray-900">
                     <img src="assets/images/ecascadeur.png" alt="Logo ecascadeur.com" class="h-9 w-auto object-contain">
                     <span>ecascadeur<span class="text-fuchsia-500">.com</span></span>
                 </a>
 
                 <!-- User Menu -->
                 <div class="flex items-center gap-4">
-                    <a href="dashboard.php" class="flex items-center gap-2 text-gray-600 hover:text-fuchsia-500 transition-colors">
+                    <a href="<?= url('dashboard') ?>" class="flex items-center gap-2 text-gray-600 hover:text-fuchsia-500 transition-colors">
                         <img src="<?php echo htmlspecialchars($profilePic); ?>" alt="Profil" class="w-8 h-8 rounded-full object-cover border border-gray-200">
                         <span class="text-sm font-medium hidden md:inline">Mon Compte</span>
                     </a>
-                    <a href="logout.php" class="p-2 text-gray-400 hover:text-fuchsia-500 transition-colors">
+                    <a href="<?= url('logout') ?>" class="p-2 text-gray-400 hover:text-fuchsia-500 transition-colors">
                         <i class="bi bi-box-arrow-right text-lg"></i>
                     </a>
                 </div>
@@ -112,7 +113,7 @@ $search_query = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '';
 
         <!-- Search Bar -->
         <div class="px-4 pt-6 pb-4">
-            <form action="recherche.php" method="GET" class="max-w-2xl mx-auto">
+            <form action="<?= url('search') ?>" method="GET" class="max-w-2xl mx-auto">
                 <div class="relative group">
                     <input type="text" 
                            name="search" 
@@ -154,7 +155,7 @@ $search_query = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '';
                         <?php if (!empty($cat['subcategories'])): ?>
                             <div class="space-y-3 mb-5">
                                 <?php foreach (array_slice($cat['subcategories'], 0, 4) as $index => $sub): ?>
-                                    <a href="produits_par_categorie.php?type=sub&id=<?php echo $sub['id']; ?>" 
+                                    <a href="<?= url('category-products') ?>?type=sub&id=<?php echo $sub['id']; ?>" 
                                        class="group flex items-center justify-between p-3 bg-gray-50 hover:bg-fuchsia-50 rounded-xl transition-colors">
                                         <span class="text-sm font-medium text-gray-700 group-hover:text-fuchsia-600">
                                             <?php echo htmlspecialchars($sub['name']); ?>
@@ -173,7 +174,7 @@ $search_query = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '';
                                     
                                     <div id="more-subs-<?php echo $cat['id']; ?>" class="hs-collapse hidden space-y-3">
                                         <?php foreach (array_slice($cat['subcategories'], 4) as $sub): ?>
-                                            <a href="produits_par_categorie.php?type=sub&id=<?php echo $sub['id']; ?>" 
+                                            <a href="<?= url('category-products') ?>?type=sub&id=<?php echo $sub['id']; ?>" 
                                                class="group flex items-center justify-between p-3 bg-gray-50 hover:bg-fuchsia-50 rounded-xl transition-colors">
                                                 <span class="text-sm font-medium text-gray-700 group-hover:text-fuchsia-600">
                                                     <?php echo htmlspecialchars($sub['name']); ?>
@@ -194,7 +195,7 @@ $search_query = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '';
                                 echo $sub_count . " sous-catégorie" . ($sub_count > 1 ? 's' : '');
                                 ?>
                             </span>
-                            <a href="produits_par_categorie.php?type=categ&id=<?php echo $cat['id']; ?>" 
+                            <a href="<?= url('category-products') ?>?type=categ&id=<?php echo $cat['id']; ?>" 
                                class="inline-flex items-center gap-2 px-4 py-2 bg-fuchsia-500 hover:bg-fuchsia-600 text-white text-sm font-medium rounded-lg transition-colors">
                                 Tout voir
                                 <i class="bi bi-arrow-right-short text-lg"></i>
