@@ -3,3 +3,4 @@
 !.env.example
 ftp.txt
 vendor/
+structure.sql
