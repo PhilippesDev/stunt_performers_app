@@ -6,7 +6,7 @@ require_once __DIR__ . '/../Router.php';
 require_once __DIR__ . '/../user_helper.php';
 
 $isLoggedIn = isset($_SESSION['user_id']);
-$userPic = getUserProfilePic();
+$userPic = getUserProfilePic($conn);
 $cartCount = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;
 ?>
 <!DOCTYPE html>

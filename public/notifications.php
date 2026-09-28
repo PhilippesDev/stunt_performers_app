@@ -52,7 +52,7 @@ $user_stmt->close();
 
 $username = $user_data['username'] ?? 'Utilisateur';
 $user_role = $user_data['role'] ?? 'buyer';
-$profilePic = getUserProfilePic();
+$profilePic = getUserProfilePic($conn);
 
 // Filtre actif
 $tab = $_GET['tab'] ?? 'all';

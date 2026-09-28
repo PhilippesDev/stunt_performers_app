@@ -6,6 +6,9 @@
     # Prevent direct HTTP access to protected directories and sensitive files outside public
     RewriteRule ^(libs|logs|\.env|\.env\.example|\.git|\.gitignore|composer\.json|composer\.lock|scratch)(/.*)?$ - [F,L,NC]
 
+    # Serve assets when the application is installed below the document root
+    RewriteRule ^(?:.*/)?assets/(.*)$ public/assets/$1 [END]
+
     # Serve static assets directly if present in public directory
     RewriteCond %{DOCUMENT_ROOT}/public/$1 -f [OR]
     RewriteCond %{DOCUMENT_ROOT}/public/$1 -d

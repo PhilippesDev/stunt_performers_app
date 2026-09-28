@@ -38,7 +38,7 @@ $joined_date = date('d/m/Y', strtotime($user['created_at']));
 
 // Récupération photo de profil
 require_once __DIR__ . '/../libs/user_helper.php';
-$profilePic = getUserProfilePic();
+$profilePic = getUserProfilePic($conn);
 
 // Statistiques rapides
 $total_products = $conn->query("SELECT COUNT(*) FROM products WHERE user_id = $user_id")->fetch_row()[0];

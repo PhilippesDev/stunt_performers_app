@@ -6,8 +6,7 @@ require_once __DIR__ . '/db.php'; // Assurez-vous de fournir le chemin correct p
  * 
  * @return string Chemin de la photo de profil ou photo par défaut.
  */
-function getUserProfilePic() {
-    global $conn; // Utilise la connexion à la base de données
+function getUserProfilePic($conn) {
     $defaultPic = 'uploads/default.png'; // Chemin de la photo par défaut
 
     // Vérifie si l'utilisateur est connecté

@@ -4,7 +4,7 @@ require_once __DIR__ . '/../libs/db.php';
 require_once __DIR__ . '/../libs/user_helper.php';
 
 // Fetch profile pic
-$profilePic = getUserProfilePic();
+$profilePic = getUserProfilePic($conn);
 
 // Fetch categories and subcategories
 $categories = [];
