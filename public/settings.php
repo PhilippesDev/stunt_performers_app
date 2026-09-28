@@ -53,12 +53,6 @@ if (isset($_POST['delete_account'])) {
       $stmt->close();
 
       
-      $stmt = $mysqli->prepare("DELETE FROM order_cancellation_reasons WHERE user_id = ?");
-      $stmt->bind_param("i", $user_id);
-      $stmt->execute();
-      $stmt->close();
-
-      
       $stmt = $mysqli->prepare("DELETE FROM products WHERE user_id = ?");
       $stmt->bind_param("i", $user_id);
       $stmt->execute();

@@ -492,15 +492,15 @@ $stmt->close();
 
 // Récupérer les annulations d'achats
 $stmt = $conn->prepare("
-    SELECT ocr.id, ocr.reason, ocr.created_at, 
+        SELECT ocr.id, ocr.cancel_reason AS reason, ocr.created_at, 
            u.username as seller_name, o.customer_name,
            p.name as product_name, p.id as product_id,
            o.id as order_id, o.unit_type
-    FROM order_cancellation_reasons ocr
+        FROM order_cancellations ocr
     LEFT JOIN orders o ON ocr.order_id = o.id
     LEFT JOIN users u ON o.seller_id = u.id
     LEFT JOIN products p ON o.product_id = p.id
-    WHERE ocr.user_id = ? 
+        WHERE ocr.user_id = ? AND o.user_id = ocr.user_id
     ORDER BY ocr.created_at DESC
 ");
 $stmt->bind_param("i", $user_id);
@@ -568,7 +568,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_cancel_purchas
 
             if ($order) {
                 // Enregistrer le motif d'annulation
-                $stmt = $conn->prepare("INSERT INTO order_cancellation_reasons (order_id, user_id, reason) VALUES (?, ?, ?)");
+                $stmt = $conn->prepare("INSERT INTO order_cancellations (order_id, user_id, cancel_reason) VALUES (?, ?, ?)");
                 $stmt->bind_param("iis", $order_id, $user_id, $final_reason);
                 $stmt->execute();
                 $stmt->close();
@@ -608,11 +608,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit_cancel_purchas
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['clear_cancellations'])) {
     $stmt = $conn->prepare("DELETE FROM order_cancellations WHERE user_id = ?");
-    $stmt->bind_param("i", $user_id);
-    $stmt->execute();
-    $stmt->close();
-
-    $stmt = $conn->prepare("DELETE FROM order_cancellation_reasons WHERE user_id = ?");
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
     $stmt->close();
