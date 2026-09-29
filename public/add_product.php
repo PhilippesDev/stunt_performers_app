@@ -63,9 +63,17 @@ function optimiserEtSauvegarderImage($sourcePath, &$destinationPath, $maxWidth =
 
 // ==================== TRAITEMENT DU FORMULAIRE ====================
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    
+    $isAjaxRequest = !empty($_POST['ajax']) && $_POST['ajax'] === '1';
+
     if (!isset($_POST['human_token']) || $_POST['human_token'] !== 'mouse_verified') {
         $error_message = "Veuillez prouver que vous êtes un humain en cochant la case.";
+
+        if ($isAjaxRequest) {
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode(['success' => false, 'message' => $error_message]);
+            exit();
+        }
+
         $_SESSION['error_message'] = $error_message;
         header('Location: add_product.php?error=1');
         exit();
@@ -438,7 +446,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Valider la transaction
             $conn->commit();
 
-            if (!empty($_POST['ajax']) && $_POST['ajax'] === '1') {
+            if ($isAjaxRequest) {
+                header('Content-Type: application/json; charset=utf-8');
                 echo json_encode(['success' => true, 'message' => 'Produit ajouté avec succès!']);
                 exit();
             }
@@ -452,7 +461,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $conn->rollback();
             }
             
-            if (!empty($_POST['ajax']) && $_POST['ajax'] === '1') {
+            if ($isAjaxRequest) {
+                header('Content-Type: application/json; charset=utf-8');
                 echo json_encode(['success' => false, 'message' => $e->getMessage()]);
                 exit();
             }
@@ -1857,7 +1867,20 @@ function productForm() {
                     throw new Error('Erreur serveur: ' + response.status);
                 }
 
-                const result = await response.json();
+                const rawResponse = await response.text();
+                let result = null;
+
+                if (rawResponse && rawResponse.trim()) {
+                    try {
+                        result = JSON.parse(rawResponse);
+                    } catch (parseError) {
+                        throw new Error('Réponse serveur invalide. Vérifiez que le captcha est bien validé et réessayez.');
+                    }
+                }
+
+                if (!result) {
+                    throw new Error('Réponse vide du serveur.');
+                }
 
                 if (result.success) {
                     this.showModal = true;
